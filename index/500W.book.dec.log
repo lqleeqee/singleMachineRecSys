@@ -1,0 +1,78 @@
+2017-06-20 08:50:22,402 : INFO : 'pattern' package not found; tag filters are not available for English
+2017-06-20 08:50:22,561 : INFO : Loaded ['/etc/luigi/client.cfg']
+DEBUG: Checking if IndexBook(conf=../recSys.conf) is complete
+2017-06-20 08:50:23,136 : DEBUG : Checking if IndexBook(conf=../recSys.conf) is complete
+DEBUG: Checking if DecompositBook(conf=../recSys.conf) is complete
+2017-06-20 08:50:23,448 : DEBUG : Checking if DecompositBook(conf=../recSys.conf) is complete
+INFO: Informed scheduler that task   IndexBook____recSys_conf_2499a3db8e   has status   PENDING
+2017-06-20 08:50:26,571 : INFO : Informed scheduler that task   IndexBook____recSys_conf_2499a3db8e   has status   PENDING
+DEBUG: Checking if InferenceBook(conf=../recSys.conf) is complete
+2017-06-20 08:50:26,707 : DEBUG : Checking if InferenceBook(conf=../recSys.conf) is complete
+DEBUG: Checking if ILibSVD(conf=../recSys.conf) is complete
+INFO: Informed scheduler that task   DecompositBook____recSys_conf_2499a3db8e   has status   PENDING
+2017-06-20 08:50:26,812 : INFO : Informed scheduler that task   DecompositBook____recSys_conf_2499a3db8e   has status   PENDING
+2017-06-20 08:50:26,781 : DEBUG : Checking if ILibSVD(conf=../recSys.conf) is complete
+INFO: Informed scheduler that task   ILibSVD____recSys_conf_2499a3db8e   has status   DONE
+2017-06-20 08:50:26,872 : INFO : Informed scheduler that task   ILibSVD____recSys_conf_2499a3db8e   has status   DONE
+INFO: Informed scheduler that task   InferenceBook____recSys_conf_2499a3db8e   has status   DONE
+2017-06-20 08:50:26,973 : INFO : Informed scheduler that task   InferenceBook____recSys_conf_2499a3db8e   has status   DONE
+INFO: Done scheduling tasks
+2017-06-20 08:50:27,074 : INFO : Done scheduling tasks
+INFO: Running Worker with 1 processes
+2017-06-20 08:50:27,074 : INFO : Running Worker with 1 processes
+DEBUG: Asking scheduler for work...
+2017-06-20 08:50:27,100 : DEBUG : Asking scheduler for work...
+DEBUG: Pending tasks: 2
+2017-06-20 08:50:27,313 : DEBUG : Pending tasks: 2
+INFO: [pid 32045] Worker Worker(salt=117914364, workers=1, host=centos6.8-jg-test01, username=root, pid=32045) running   DecompositBook(conf=../recSys.conf)
+2017-06-20 08:50:27,314 : INFO : [pid 32045] Worker Worker(salt=117914364, workers=1, host=centos6.8-jg-test01, username=root, pid=32045) running   DecompositBook(conf=../recSys.conf)
+/usr/local/lib/python2.7/site-packages/sklearn/base.py:315: UserWarning: Trying to unpickle estimator TruncatedSVD from version pre-0.18 when using version 0.18.1. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+INFO: [pid 32045] Worker Worker(salt=117914364, workers=1, host=centos6.8-jg-test01, username=root, pid=32045) done      DecompositBook(conf=../recSys.conf)
+2017-06-20 09:27:39,487 : INFO : [pid 32045] Worker Worker(salt=117914364, workers=1, host=centos6.8-jg-test01, username=root, pid=32045) done      DecompositBook(conf=../recSys.conf)
+DEBUG: 1 running tasks, waiting for next task to finish
+2017-06-20 09:27:39,661 : DEBUG : 1 running tasks, waiting for next task to finish
+INFO: Informed scheduler that task   DecompositBook____recSys_conf_2499a3db8e   has status   DONE
+2017-06-20 09:27:39,957 : INFO : Informed scheduler that task   DecompositBook____recSys_conf_2499a3db8e   has status   DONE
+DEBUG: Asking scheduler for work...
+2017-06-20 09:27:39,961 : DEBUG : Asking scheduler for work...
+DEBUG: Done
+2017-06-20 09:27:40,099 : DEBUG : Done
+DEBUG: There are no more tasks to run at this time
+2017-06-20 09:27:40,099 : DEBUG : There are no more tasks to run at this time
+INFO: Worker Worker(salt=117914364, workers=1, host=centos6.8-jg-test01, username=root, pid=32045) was stopped. Shutting down Keep-Alive thread
+2017-06-20 09:27:40,149 : INFO : Worker Worker(salt=117914364, workers=1, host=centos6.8-jg-test01, username=root, pid=32045) was stopped. Shutting down Keep-Alive thread
+INFO: 
+===== Luigi Execution Summary =====
+
+Scheduled 4 tasks of which:
+* 2 present dependencies were encountered:
+    - 1 ILibSVD(conf=../recSys.conf)
+    - 1 InferenceBook(conf=../recSys.conf)
+* 1 ran successfully:
+    - 1 DecompositBook(conf=../recSys.conf)
+* 1 were left pending, among these:
+    * 1 was not granted run permission by the scheduler:
+        - 1 IndexBook(conf=../recSys.conf)
+
+This progress looks :| because there were tasks that were not granted run permission by the scheduler
+
+===== Luigi Execution Summary =====
+
+2017-06-20 09:27:40,280 : INFO : 
+===== Luigi Execution Summary =====
+
+Scheduled 4 tasks of which:
+* 2 present dependencies were encountered:
+    - 1 ILibSVD(conf=../recSys.conf)
+    - 1 InferenceBook(conf=../recSys.conf)
+* 1 ran successfully:
+    - 1 DecompositBook(conf=../recSys.conf)
+* 1 were left pending, among these:
+    * 1 was not granted run permission by the scheduler:
+        - 1 IndexBook(conf=../recSys.conf)
+
+This progress looks :| because there were tasks that were not granted run permission by the scheduler
+
+===== Luigi Execution Summary =====
+
