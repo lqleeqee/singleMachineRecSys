@@ -24,6 +24,7 @@ from index.index_user import IndexUser
 
 from ConfigParser import SafeConfigParser
 import luigi
+from luigi.tools.deps import find_deps
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
@@ -67,6 +68,43 @@ class UserRecBooks(luigi.Task):
                     self.thread_num,
                     isUser=True,
                     isRecUser=True)
+
+class ReRun(luigi.WrapperTask):
+    conf = luigi.Parameter()
+    refresh = luigi.Parameter()
+    def __init__(self, *args, **kwargs):
+        luigi.WrapperTask.__init__(self, *args, **kwargs)
+        tasks = set([])
+        if self.refresh == "user":
+            tasks = tasks.union(find_deps(UserRecBooks(self.conf), "SegmentUser"))
+            self.remove_tasks(tasks)
+        elif self.refresh == "book":
+            tasks = tasks.union(find_deps(UserRecBooks(self.conf), "SegmentBook"))
+            self.remove_tasks(tasks)
+        elif self.refresh == "all":
+            tasks = tasks.union(find_deps(UserRecBooks(self.conf), "SegmentUser"))
+            tasks = tasks.union(find_deps(UserRecBooks(self.conf), "SegmentBook"))
+            self.remove_tasks(tasks)
+        else:
+            raise Exception('unrecognized option --refresh %s' % self.refresh)
+
+    def requires(self):
+        yield UserRecBooks(self.conf)
+
+    def run():
+        pass
+
+    def remove_tasks(self, tasks):
+        for task in tasks:
+            targets = task.output()
+            if isinstance(targets, dict):
+                targets = targets.values()
+            else:
+                targets = [targets]
+            for target in targets:
+                if target is not None and target.exists():
+                    target.remove()
+
 
 if __name__ == "__main__":
     luigi.run()

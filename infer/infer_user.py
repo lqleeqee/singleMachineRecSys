@@ -145,7 +145,7 @@ class InferenceUser(luigi.Task):
         cmd_2 = "paste %s %s > %s" % (id_fn,tmp_outfn,tmp_dense)
         os.system(cmd_2)
         #转换为稀疏表示
-        self.den_spa(tmp_dense,outfn)
+        self.den_spa(tmp_dense,out_fn)
         #删除中间文件)
         os.remove(id_fn)
         os.remove(cont_fn)
