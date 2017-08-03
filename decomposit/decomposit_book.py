@@ -9,6 +9,7 @@ import inspect
 import multiprocessing
 import commands
 import shutil
+import copy
 pfolder = os.path.realpath(os.path.abspath (os.path.join(os.path.split(inspect.getfile( inspect.currentframe() ))[0],"..")))
 if pfolder not in sys.path:
     sys.path.insert(0, pfolder)
@@ -26,7 +27,7 @@ from tools.matrix import *
 
 
 def decomposit_split(in_fn,out_fn,model_fn,topic_num):
-    model = model_fn
+    model = copy.deepcopy(model_fn)
     fea_corpus = FeaCorpus(in_fn,sparse=True)
     ids = [id for id in FeaCorpus(in_fn, onlyID=True)]
     X = load_csr_matrix(fea_corpus,topic_num)
